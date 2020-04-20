@@ -1,0 +1,38 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "create directory",
+			"command": "mkdir -p ${workspaceFolder}/build/${relativeFileDirname}"
+		},
+		{
+			"type": "shell",
+			"label": "build",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-std=c++14",
+				"-pthread",
+                "-g",
+                "-I${workspaceFolder}",
+				"${fileDirname}/test.cpp",
+				"${workspaceFolder}/util/util.cpp",
+                "-o",
+                "${workspaceFolder}/build/${relativeFileDirname}/test",
+                "-lgtest",
+                "-lgtest_main"
+			],
+			"options": {
+				"cwd": "/usr/bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+			},
+			"dependsOn": "create directory"
+		}
+	]
+}
