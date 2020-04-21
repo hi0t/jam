@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "debug",
+            "name": "debug test",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/${relativeFileDirname}/test",
@@ -22,7 +22,39 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build",
+            "preLaunchTask": "build test",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "debug interactive",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/usr/bin/python3",
+            "args": [
+                "${workspaceFolder}/util/interactive_runner.py",
+                "-debug",
+                "/usr/bin/python3",
+                "${fileDirname}/testing_tool.py",
+                "0",
+                "--",
+                "${workspaceFolder}/build/${relativeFileDirname}/main"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "text": "-gdb-set follow-fork-mode child"
+                }
+            ],
+            "preLaunchTask": "build main",
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]

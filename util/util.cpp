@@ -25,14 +25,14 @@ string trim(const string& s)
 	return rtrim(ltrim(s));
 }
 
-void checkSimple(const function<int(void)> &main, const string &test, string &fact) {
+void checkSimple(const function<int(void)> &mainFn, const string &test, string &fact) {
     istringstream in(test);
     auto cinbuf = cin.rdbuf(in.rdbuf());
 
     ostringstream out;
     auto coutbuf = cout.rdbuf(out.rdbuf());
 
-    main();
+    mainFn();
     fact = "\n" + out.str();
 
     cin.rdbuf(cinbuf);

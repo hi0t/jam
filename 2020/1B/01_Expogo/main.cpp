@@ -3,11 +3,11 @@
 using namespace std;
 
 string solution(int x0, int y0) {
-    for (int steps = 0; steps < 10; steps++) {
+    for (int steps = 0; steps < 40; steps++) {
         string res;
-        int64_t x = x0; int64_t y = y0;
+        long x = x0; long y = y0;
         for (int i = steps; i >= 0; i--) {
-            int64_t step = 1 << i;
+            long step = 1 << i;
             if (abs(x) > abs(y)) {
                 if (x > 0) {
                     x -= step;
