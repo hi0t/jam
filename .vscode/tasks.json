@@ -14,13 +14,11 @@
 				"-std=c++14",
 				"-pthread",
                 "-g",
-                "-I${workspaceFolder}",
+                "-I${workspaceFolder}/util",
+				"-o", "${workspaceFolder}/build/${relativeFileDirname}/test",
 				"${fileDirname}/test.cpp",
+				"${workspaceFolder}/util/utest.cpp",
 				"${workspaceFolder}/util/util.cpp",
-                "-o",
-                "${workspaceFolder}/build/${relativeFileDirname}/test",
-                "-lgtest",
-                "-lgtest_main"
 			],
 			"options": {
 				"cwd": "/usr/bin"

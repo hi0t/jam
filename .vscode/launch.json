@@ -22,8 +22,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build test",
-            "miDebuggerPath": "/usr/bin/gdb"
+            "preLaunchTask": "build test"
         },
         {
             "name": "debug interactive",
@@ -54,8 +53,7 @@
                     "text": "-gdb-set follow-fork-mode child"
                 }
             ],
-            "preLaunchTask": "build main",
-            "miDebuggerPath": "/usr/bin/gdb"
+            "preLaunchTask": "build main"
         }
     ]
 }

@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
-#include "util/util.h"
+#include "utest.h"
+#include "util.h"
 #define main mainFn
 #include "main.cpp"
 
@@ -26,8 +26,8 @@ Case #7: EE
 Case #8: IMPOSSIBLE
 )";
 
-TEST(Solution, Test) {
+TEST(Solution) {
     string fact;
-    util::checkSimple(mainFn, test, fact);
-    ASSERT_EQ(util::trim(want), util::trim(fact));
+    util::checkSimple(main, test, fact);
+    EXPECT_EQ(util::trim(want), util::trim(fact));
 }
