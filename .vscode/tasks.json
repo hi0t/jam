@@ -4,7 +4,7 @@
 		{
 			"type": "shell",
 			"label": "create directory",
-			"command": "mkdir -p ${workspaceFolder}/build/${relativeFileDirname}"
+			"command": "test -f ${fileDirname}/main.cpp && mkdir -p ${workspaceFolder}/build/${relativeFileDirname}",
 		},
 		{
 			"type": "shell",
@@ -13,20 +13,17 @@
 			"args": [
 				"-std=c++14",
 				"-pthread",
-                "-g",
-                "-I${workspaceFolder}/util",
+				"-g",
+				"-I${workspaceFolder}/util",
 				"-o", "${workspaceFolder}/build/${relativeFileDirname}/test",
 				"${fileDirname}/test.cpp",
 				"${workspaceFolder}/util/utest.cpp",
 				"${workspaceFolder}/util/util.cpp",
 			],
-			"options": {
-				"cwd": "/usr/bin"
-			},
 			"problemMatcher": [
 				"$gcc"
 			],
-            "group": "build",
+			"group": "build",
 			"dependsOn": "create directory"
 		},
 		{
@@ -36,18 +33,15 @@
 			"args": [
 				"-std=c++14",
 				"-pthread",
-                "-g",
+				"-g",
 				"${fileDirname}/main.cpp",
-                "-o",
-                "${workspaceFolder}/build/${relativeFileDirname}/main",
+				"-o",
+				"${workspaceFolder}/build/${relativeFileDirname}/main",
 			],
-			"options": {
-				"cwd": "/usr/bin"
-			},
 			"problemMatcher": [
 				"$gcc"
 			],
-            "group": "build",
+			"group": "build",
 			"dependsOn": "create directory"
 		}
 	]

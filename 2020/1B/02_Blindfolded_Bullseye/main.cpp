@@ -1,10 +1,11 @@
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
 const long M = 1e9;
 
-string ask(long x, long y) {
+string ask(long x, long y)
+{
     cout << x << ' ' << y << endl;
     string s;
     cin >> s;
@@ -14,12 +15,13 @@ string ask(long x, long y) {
     return s;
 }
 
-void solution(int test) {
+void solution(int test)
+{
     long x0, y0;
     bool ok = false;
 
-    for (long x : {-M/2, 0L, M/2}) {
-        for (long y : {-M/2, 0L, M/2}) {
+    for (long x : { -M / 2, 0L, M / 2 }) {
+        for (long y : { -M / 2, 0L, M / 2 }) {
             string s = ask(x, y);
             if (s == "CENTER") {
                 return;
@@ -50,7 +52,8 @@ void solution(int test) {
     }
 
     long xl = r;
-    l = x0; r = M + 1;
+    l = x0;
+    r = M + 1;
     while (r - l > 1) {
         long c = (l + r) / 2;
         string s = ask(c, y0);
@@ -66,7 +69,8 @@ void solution(int test) {
 
     long xr = l;
     long xc = (xl + xr) / 2;
-    l = -M - 1; r = y0;
+    l = -M - 1;
+    r = y0;
     while (r - l > 1) {
         long c = (l + r) / 2;
         string s = ask(xc, c);
@@ -81,7 +85,8 @@ void solution(int test) {
     }
 
     long yl = r;
-    l = y0; r = M + 1;
+    l = y0;
+    r = M + 1;
     while (r - l > 1) {
         long c = (l + r) / 2;
         string s = ask(xc, c);
@@ -98,10 +103,10 @@ void solution(int test) {
     long yr = l;
     long yc = (yl + yr) / 2;
     string s = ask(xc, yc);
-    assert(s == "CENTER");
 }
 
-int main() {
+int main()
+{
     int t;
     cin >> t;
     long a, b;

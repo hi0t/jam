@@ -1,11 +1,14 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
 
 using namespace std;
 
-string solution(int x0, int y0) {
+string solution(int x0, int y0)
+{
     for (int steps = 0; steps < 40; steps++) {
         string res;
-        long x = x0; long y = y0;
+        long x = x0;
+        long y = y0;
         for (int i = steps; i >= 0; i--) {
             long step = 1 << i;
             if (abs(x) > abs(y)) {
@@ -35,7 +38,8 @@ string solution(int x0, int y0) {
     return "IMPOSSIBLE";
 }
 
-int main() {
+int main()
+{
     int t;
     cin >> t;
     for (int i = 1; i <= t; i++) {

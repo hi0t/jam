@@ -5,10 +5,11 @@
 
 using namespace std;
 
-namespace internal {
+namespace Internal {
 
-bool UnitTest::Register(const TestCase &test) {
-    auto it = find_if(listeners.begin(), listeners.end(), [&test](const TestCase& obj) {return obj.Name == test.Name;});
+bool UnitTest::registerTest(const TestCase& test)
+{
+    auto it = find_if(listeners.begin(), listeners.end(), [&test](const TestCase& obj) { return obj.name == test.name; });
     if (it != listeners.end()) {
         return false;
     }
@@ -16,19 +17,25 @@ bool UnitTest::Register(const TestCase &test) {
     return true;
 }
 
-void UnitTest::Run() {
-    for (auto &l : listeners) {
-        l.Pointer();
+void UnitTest::run()
+{
+    for (auto& l : listeners) {
+        l.pointer();
     }
 }
 
-void Report(const string &val1, const string &val2, const string &file, int line, bool valid) {
+void report(const string& val1, const string& val2, const string& file, int line, bool valid)
+{
     if (valid) {
-        cout << file << ":" << line << ": \033[32m" << "PASSED" << "\033[0m" << endl;
+        cout << file << ":" << line << ": \033[32m"
+             << "PASSED"
+             << "\033[0m" << endl;
         return;
     }
 
-    cout << file << ":" << line << ": \033[31m" << "FAILED" << "\033[0m" << endl;
+    cout << file << ":" << line << ": \033[31m"
+         << "FAILED"
+         << "\033[0m" << endl;
     istringstream ss1(val1);
     istringstream ss2(val2);
     string s1;
@@ -42,13 +49,15 @@ void Report(const string &val1, const string &val2, const string &file, int line
         cout << "\t" << s1 << " != <empty>" << endl;
     }
     while (getline(ss2, s2)) {
-        cout << "\t" << "<empty> != " << s2 << endl;
+        cout << "\t"
+             << "<empty> != " << s2 << endl;
     }
 }
 
 }
 
-int main() {
-    internal::UnitTest::GetInstance().Run();
+int main()
+{
+    Internal::UnitTest::getInstance().run();
     return 0;
 }

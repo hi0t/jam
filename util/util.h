@@ -1,11 +1,11 @@
 #include <functional>
 
-namespace util {
-    std::string ltrim(const std::string &s);
+namespace Util {
+std::string ltrim(const std::string& s);
 
-    std::string rtrim(const std::string &s);
+std::string rtrim(const std::string& s);
 
-    std::string trim(const std::string &s);
+std::string trim(const std::string& s);
 
-    void checkSimple(const std::function<int(void)> &mainFn, const std::string &test, std::string &fact);
+void check(const std::function<int(void)>& mainFn, const std::string& test, std::string& fact);
 }

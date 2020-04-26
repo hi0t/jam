@@ -4,28 +4,29 @@
 
 using namespace std;
 
-namespace util {
+namespace Util {
 
 const string WHITESPACE = " \n\r\t\f\v";
 
-string ltrim(const string &s)
+string ltrim(const string& s)
 {
-	size_t start = s.find_first_not_of(WHITESPACE);
-	return (start == string::npos) ? "" : s.substr(start);
+    size_t start = s.find_first_not_of(WHITESPACE);
+    return (start == string::npos) ? "" : s.substr(start);
 }
 
-string rtrim(const string &s)
+string rtrim(const string& s)
 {
-	size_t end = s.find_last_not_of(WHITESPACE);
-	return (end == string::npos) ? "" : s.substr(0, end + 1);
+    size_t end = s.find_last_not_of(WHITESPACE);
+    return (end == string::npos) ? "" : s.substr(0, end + 1);
 }
 
 string trim(const string& s)
 {
-	return rtrim(ltrim(s));
+    return rtrim(ltrim(s));
 }
 
-void checkSimple(const function<int(void)> &mainFn, const string &test, string &fact) {
+void check(const function<int(void)>& mainFn, const string& test, string& fact)
+{
     istringstream in(test);
     auto cinbuf = cin.rdbuf(in.rdbuf());
 

@@ -26,8 +26,9 @@ Case #7: EE
 Case #8: IMPOSSIBLE
 )";
 
-TEST(Solution) {
+TEST(Solution)
+{
     string fact;
-    util::checkSimple(main, test, fact);
-    EXPECT_EQ(util::trim(want), util::trim(fact));
+    Util::check(main, test, fact);
+    EXPECT_EQ(Util::trim(want), Util::trim(fact));
 }
