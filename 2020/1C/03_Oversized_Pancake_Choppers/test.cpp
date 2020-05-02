@@ -4,26 +4,22 @@
 #include "main.cpp"
 
 const string test = R"(
-8
-0 1
-7 10
--11 2
-0 0
+4
+1 3
+1
+5 2
+10 5 359999999999 123456789 10
 2 3
--2 -3
-3 0
--1 1
+8 4
+3 2
+1 2 3
 )";
 
 const string want = R"(
-Case #1: N
-Case #2: WSSEN
-Case #3: ENWW
-Case #4: IMPOSSIBLE
-Case #5: SEN
-Case #6: NWS
-Case #7: EE
-Case #8: IMPOSSIBLE
+Case #1: 2
+Case #2: 0
+Case #3: 1
+Case #4: 1
 )";
 
 TEST(Solution)
